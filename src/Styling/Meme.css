@@ -1,3 +1,8 @@
+section {
+    height: 100vh;
+}
+
+/* FORM  */
 form {
     width: 800px;
     margin: 0 auto;
@@ -31,6 +36,7 @@ button {
     cursor: pointer;
 }
 
+/* MEME */
 .meme-image {
     display: block;
     max-width: 90%;
@@ -45,6 +51,7 @@ button {
     height: 50px
 }
 
+/* MEME TEXT AREA */
 .meme {
     position: relative;
 }
@@ -81,3 +88,4 @@ button {
 .top {
     top: 0;
 }
+

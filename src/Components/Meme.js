@@ -1,25 +1,35 @@
 import "../Styling/Meme.css"
-import localData from "../memeData.js"
-import { useState } from "react"
-import Star from "./Star"
-import boxes from "../boxes.js"
+import { useEffect, useState } from "react"
 
 
-const Meme = () => {
+
+const Meme = (props) => {
 
     const [meme, setMeme] = useState({
         topText: "",
         bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg"
     })
-    const [allMemeImages, setAllMemeImages] = useState(localData)
+    const [allMemesData, setAllMemeData] = useState([])
 
-    //GETS A RANDOM IMG FROM A LOCAL DATABASE MEMEDATA.JS --> BUTTON
+
+    //FETCH DATA FROM API AND SET UP AS ALLMEMESDATA
+    useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            console.log(data.data.memes)
+            setAllMemeData(data.data.memes)
+        })
+    }, [])
+
+    //GETS A RANDOM IMG FROM ALLMEMESDATA --> BUTTON
     const getRandomImage = (e) => {
         e.preventDefault()
-        const allData = allMemeImages.data.memes
-        const randomNumber = (Math.floor(Math.random() * allData.length))
-        const randomData = allData[randomNumber]
+        const randomNumber = (Math.floor(Math.random() * allMemesData.length))
+        const randomData = allMemesData[randomNumber]
         const randomImage = randomData.url
         setMeme((prevValue) => {
             return {
@@ -43,7 +53,7 @@ const Meme = () => {
     console.log(meme)
 
     return ( 
-        <section>
+        <section className={props.darkMode ? "dark" : "light"}>
             <form action="">
                 <div className="form--inputs">
                     <input 

@@ -1,9 +1,72 @@
 nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0.75em 0;
     background: linear-gradient(to right, #2bc0e4, #eaecc6);
 }
+
+
+/* LIGHT/DARK MODE TOGGLER */
+.toggler {
+    display: flex;
+    align-items: center;
+}
+
+.toggler--light {
+    color:#21222A;
+}
+
+nav.dark .toggler--light {
+    color: #FFFFFF;
+}
+
+.toggler--dark {
+    color: #FFFFFF;
+}
+
+nav.dark .toggler--dark {
+    color: #21222A;
+}
+
+.toggler--slider {
+    width: 25px;
+    height: 13px;
+    background-color: #21222A;
+    border-radius: 2rem;
+    margin: 7px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid  #21222A;
+    box-sizing: content-box;
+}
+
+nav.dark .toggler--slider {
+    border-color: white;
+    background-color: #F5F5F5;
+}
+
+.toggler--slider--circle {
+    height: 13px;
+    width: 13px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+nav.dark .toggler--slider--circle {
+    background-color: #21222A;
+}
+
+.dark {
+    background-color: #21222A;
+}
+
+.light {
+    background-color: #FFFFFF;
+}
+
 
 
 
