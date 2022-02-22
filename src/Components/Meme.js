@@ -1,8 +1,6 @@
 import "../Styling/Meme.css"
 import { useEffect, useState } from "react"
 
-
-
 const Meme = (props) => {
 
     const [meme, setMeme] = useState({
